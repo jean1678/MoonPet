@@ -199,10 +199,9 @@ textarea{
     display: grid;
     justify-content: center;
     align-items: center;
-    gap: 2em;   
     grid-template-rows: auto;
     grid-template-columns: repeat(4, 1fr);
-    max-width: 60vw;
+    max-width: 55vw;
     margin: 0 auto;
 }
 
