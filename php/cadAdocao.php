@@ -1,6 +1,5 @@
 <?php 
-
-    include 'conexao.php';
+    header('Content-Type: application/json');
 
     $nome = $_POST['nome'];
     $raca = $_POST['raca'];
@@ -9,33 +8,33 @@
     $imagem = $_FILES['flImage'];
     $cidade = $_POST['cidade'];
 
+    $dir = "../pets/";
 
+    $imagem['nome'] = $nome.".jpg";
+    $imgname = $imagem['name'];
 
-        $dir = "../pets/";
-
-        $imagem['name'] = $nome.".jpg";
-        $imgname= $imagem['name'] ;
-        if (move_uploaded_file($imagem["tmp_name"], "$dir".$imagem["name"])){
-
-        echo "Arquivos enviados com sucesso!";
-        }
-        else{
-            echo "Erro, o arquivo n&atilde;o pode ser enviado.";
-        }
-
-
-
-    $sql = ("INSERT INTO doacao (nome,sexo,raca,informacoes,imagem,idCidade) VALUES ('$nome', '$sexo', '$raca', '$informacoes','$imgname','$cidade')");
-        
-    $result = mysqli_query($conn, $sql);
-
-    $rows = mysqli_affected_rows($conn);
-
-    if($rows > 0){
-        //echo "<script>alert('Pet cadastrado com sucesso!');window.location.href='http://localhost/barbearia/cadastrar.php'</script>";
-    }
-    else{
-        echo "ERRO AO CADASTRAR BARBEIRO";
+    if (move_uploaded_file($imagem["tmp_name"], "$dir".$imagem["name"])) {
+        $message = "Arquivos enviados com sucesso!";
+    } else {
+        $message = "Erro, o arquivo não pode ser enviado.";
     }
 
-?>    
+    include "conexao.php";
+
+    $stmt = $pdo->prepare('INSERT INTO doacao (nome, sexo, raca, informacoes, imagem, idCidade) VALUES (:nome, :sexo, :raca, :informacoes, :imagem, :cidade)');
+    $stmt->bindValue(':nome', $nome);
+    $stmt->bindValue(':sexo', $sexo);
+    $stmt->bindValue(':raca', $raca);
+    $stmt->bindValue(':informacoes', $informacoes);
+    $stmt->bindValue(':imagem', $imgname);
+    $stmt->bindValue(':cidade', $cidade);
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+        $response = 'Pet cadastrado com sucesso';
+    } else {
+        $response = 'Erro ao cadastrar pet';
+    }
+
+    echo json_encode($response);
+?>

@@ -72,14 +72,11 @@
      <?php 
               include "php/conexao.php";
 
-              $result = $conn->query("select * from cidade");
-              while($row = $result->fetch_object())
-              {
-       
+              $query = "SELECT * FROM Cidade"; // Ajuste para o nome correto da tabela "Cidade"
+              $result = $pdo->query($query);
 
-         echo'
-        <option value="'.$row->idCidade.'">'.$row->cidade.'</option>
-        ';
+              while ($row = $result->fetch(PDO::FETCH_OBJ)) { // Corrigir o loop para iterar sobre os resultados
+                  echo '<option value="' . $row->idCidade . '">' . $row->cidade . '</option>';
               }
         ?>
 
@@ -87,59 +84,54 @@
 
     <select id="tipo" name="Tipo">
         <option value="" disabled="disabled" selected="selected">Tipo</option>
+
         <?php 
-              include "php/conexao.php";
+                    include "php/conexao.php";
 
-              $result = $conn->query("select * from espécie");
-              while($row = $result->fetch_object())
-              {
-       
+                    $query = "SELECT * FROM espécie"; // Ajuste para o nome correto da tabela "Cidade"
+                    $result = $pdo->query($query);
 
-         echo'
-        <option value="'.$row->idespecie.'">'.$row->especie.'</option>
-        ';
-              }
+                    while ($row = $result->fetch(PDO::FETCH_OBJ)) { // Corrigir o loop para iterar sobre os resultados
+                        echo '<option value="' . $row->idespecie . '">' . $row->especie . '</option>';
+                    }
         ?>
     </select>
 
-</div>
-
-
-<div class="btn">
-        <a href="#">Buscar</a>
     </div>
 
 
-<div class="container2" >
-
-    <?php
-
-        include "php/conexao.php";
-
-        $result = $conn->query("select * from doacao");
-        while($row = $result->fetch_object())
-        {
-
-    
-    
-            echo'
-        <div class="cardAnimal">
-            <a href="perfil.php">
-            <div class="cardFoto">
-                    <img src="pets/'.$row->nome.'.jpg" alt="">                
-                </div>
-                <div class="cardNome">               
-                    <p>'.$row->nome.'</p>
-                    <div class="complemento">
-                    <h3>Santos-SP</h3>
-                    </div>               
-                </div>
-            </a>
+    <div class="btn">
+            <a href="#">Buscar</a>
         </div>
 
-        ';
+
+    <div class="container2" >
+
+    <?php
+        include "php/conexao.php";
+
+        $query = "SELECT * FROM doacao"; // Ajuste para o nome correto da tabela "doacao"
+        $result = $pdo->query($query);
+
+        while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+            echo '
+            <div class="cardAnimal">
+                <a href="perfil.php">
+                <div class="cardFoto">
+                        <img src="pets/' . $row->imagem . '" alt="">                
+                    </div>
+                    <div class="cardNome">               
+                        <p>' . $row->nome . '</p>
+                        <div class="complemento">
+                        <h3>Santos-SP</h3>
+                        </div>               
+                    </div>
+                </a>
+            </div>
+            ';
         }
-        ?>
+    ?>
+
 
     </div>
 

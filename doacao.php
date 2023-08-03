@@ -1,7 +1,5 @@
 <?php
-
-echo $_SESSION['nome'];
-
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -15,9 +13,16 @@ echo $_SESSION['nome'];
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
         integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="css/sweetalert2.css">
     <title>MoonPetATT</title>
 </head>
 <body>
+
+<?php
+        if (isset($_SESSION['nome'])) {
+            echo $_SESSION['nome'];
+        }
+?>
 
 <!--Inicio Botâo de subir pro inicio-->
 <a href="#inicio"><button class="subir"><img src="https://cdn.pixabay.com/photo/2016/09/05/10/50/app-1646212_1280.png"></button></a>
@@ -70,7 +75,7 @@ echo $_SESSION['nome'];
 
 <div class="container23">
     <table>
-    <form action="php/cadAdocao.php" method="POST" enctype="multipart/form-data">
+    <form id="form1" action="php/cadAdocao.php" method="POST" enctype="multipart/form-data">
     <input type="file" id="flImage" name="flImage" accept="image/*">
         <div class="formulários">
             <label for= "nome">Nome ou Apelido:</label>
@@ -102,21 +107,19 @@ echo $_SESSION['nome'];
 
         <label for="CPF/CNPJ">Cidade:</label>
             <select id="cidade" name="cidade">
-                <option class="td" value="" disabled="disabled" selected="selected">Cidade</option>
+                <option class="td" value="" disabled="disabled" selected="selected">cidade</option>
                     
-                    <?php
+                <?php
                     include "php/conexao.php";
 
-                    $result = $conn->query("select * from cidade");
-                    while($row = $result->fetch_object())
-                    {
+                    $query = "SELECT * FROM Cidade"; // Ajuste para o nome correto da tabela "Cidade"
+                    $result = $pdo->query($query);
 
-
-    echo'
-    <option value="'.$row->idCidade.'">'.$row->cidade.'</option>
-    ';
-}
-?>
+                    while ($row = $result->fetch(PDO::FETCH_OBJ)) { // Corrigir o loop para iterar sobre os resultados
+                        echo '<option value="' . $row->idCidade . '">' . $row->cidade . '</option>';
+                    }
+                ?>
+                
             </select>
         </div>
 
@@ -133,7 +136,7 @@ echo $_SESSION['nome'];
         <span>Para continuar é preciso que concorde com os <a href="">termos de doação</a></span>
         <br>
         <br>
-        <button type="submit" class="btnDoar">Doar</button>
+        <button form="form1" type="submit" class="btnDoar">Doar</button>
         </div>  
         </form>     
         
@@ -226,8 +229,6 @@ echo $_SESSION['nome'];
         });
     </script>
 
-    //fazendo preview
-
     <script>
     let img = document.getElementById('imgPhoto');
     let input = document.getElementById('flImage');
@@ -240,7 +241,9 @@ echo $_SESSION['nome'];
 
     <!--Script slider-->
 
-
+    <script src="js/slide.js"></script>
+    <script src="js/jQuery/jquery-3.7.0.min.js"></script>
+	<script src="js/doacao.js"></script>
 
 </body>
 </html>
