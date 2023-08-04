@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-    include 'conexao.php';
+    header('Content-Type: application/json');
 
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
@@ -8,18 +8,22 @@
     $cpf = $_POST['cpf'];
     $telefone = $_POST['telefone'];
 
+    include "conexao.php";
 
-    $sql = ("INSERT INTO cadastro (nome,senha,email,cpf,telefone) VALUES ('$nome', '$senha', '$email', '$cpf', '$telefone')");
-        
-    $result = mysqli_query($conn, $sql);
+    $stmt = $pdo->prepare('INSERT INTO cadastro (nome, senha, email, cpf, telefone) VALUES (:nome, :senha, :email, :cpf, :telefone)');
+    $stmt->bindValue(':nome', $nome);
+    $stmt->bindValue(':senha', $senha);
+    $stmt->bindValue(':email', $email);
+    $stmt->bindValue(':cpf', $cpf);
+    $stmt->bindValue(':telefone', $telefone);
+    $stmt->execute();
 
-    $rows = mysqli_affected_rows($conn);
-
-    if($rows > 0){
-        echo "<script>alert('Cliente cadastrado com sucesso!');window.location.href='http://localhost/moonpetBack/doacao.php'</script>";
+    if ($stmt->rowCount() > 0) {
+        $response = 'Usuario cadastrado com sucesso';
+    } else {
+        $response = 'Erro ao cadastrar Usuario';
     }
-    else{
-        echo "ERRO AO CADASTRAR BARBEIRO";
-    }
+
+    echo json_encode($response);
 
 ?>    
