@@ -54,11 +54,24 @@
 
   <main>
 
-    <div class="galeria">
-      <div class="perfil">
-        <img src="img/hamster.jpg" alt="">
-      </div>
-  
+
+  <?php
+
+  include "php/conexao.php";
+
+  $query = "SELECT * FROM doacao"; // Ajuste para o nome correto da tabela "doacao"
+  $result = $pdo->query($query);
+
+  while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+    echo '
+  <div class="galeria">
+  <div class="perfil">
+  <img src="pets/' . $row->imagem . '" alt="">  
+  </div>
+  ';
+}
+  ?>
+
       <div class="midia">
         <img src="img/hamster.jpg" alt="">
         <img src="img/hamster.jpg" alt="">

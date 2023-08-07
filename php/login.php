@@ -8,16 +8,13 @@
 
     $n = $_POST['usuario'];
     $s = $_POST['senha'];
-   
-
-    $sql = "SELECT * from cadastro where email = '$n' and senha = '$s'";
 
     /**mysqli_query = executa um comando dentro de um banco de dados
      * você deverá informar dois parâmetros, conexão com banco e comando sql
      */
-    $result = mysqli_query($conn, $sql);
-    /*mysqli_num_rows = conta a quantidade de linhas em uma variável*/ 
-    $row = mysqli_num_rows($result);
+    $query = "SELECT * from cadastro where email = '$n' and senha = '$s'"; // Ajuste para o nome correto da tabela "Cidade"
+    $result = $pdo->query($query);
+
     /** se row >0 significa que um resultado foi encontrado */
     if($row > 0){
         /**mysqli_fetch_assoc = cria um array(vetor) associativo com os nomes das colunas

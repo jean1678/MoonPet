@@ -242,8 +242,6 @@
     <!--Script slider-->
 
     <script src="js/slide.js"></script>
-    <script src="js/jQuery/jquery-3.7.0.min.js"></script>
-	<script src="js/doacao.js"></script>
 
 </body>
 </html>
