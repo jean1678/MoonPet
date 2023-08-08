@@ -56,60 +56,56 @@
 
 
   <?php
-
+  $doacao = $_GET['doacao'];
+  
   include "php/conexao.php";
 
-  $query = "SELECT * FROM doacao"; // Ajuste para o nome correto da tabela "doacao"
-  $result = $pdo->query($query);
+    $query = "SELECT * FROM doacao WHERE idDoacao = '$doacao'";
 
-  while ($row = $result->fetch(PDO::FETCH_OBJ)) {
-    echo '
-  <div class="galeria">
+    $result = $pdo->query($query);
+
+    while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+        echo '
+<div class="galeria">
   <div class="perfil">
-  <img src="pets/' . $row->imagem . '" alt="">  
+    <img src="pets/' . $row->imagem . '" alt="' . $row->nome . '">
   </div>
-  ';
-}
-  ?>
 
-      <div class="midia">
-        <img src="img/hamster.jpg" alt="">
-        <img src="img/hamster.jpg" alt="">
-        <img src="img/hamster.jpg" alt="">
-      </div>
-    </div>
-    
-
-    <div class="container">
-
-      <div class="nome">
-        <p>Débora</p>
-      </div>
-  
-      <div class="complemento">
-        <p>Hamster/Fêmea</p>
-      </div>
-  
-      <div class="info">
-        <h3>Informaçõesⓘ</h3>
-  
-        <p>Adorável e carinhosa, Débora é uma hamster encantadora que está procurando por um novo lar amoroso. Com seu pelo macio e olhos brilhantes, ela é uma companheira perfeita para trazer alegria e diversão para qualquer família.
-          Débora é uma hamster síria, também conhecida como hamster-dourado, uma das espécies mais populares e adoráveis de hamsters de estimação. Com sua personalidade amigável e natureza curiosa, ela adora explorar seu ambiente e interagir com seus cuidadores.
-          Ela é uma hamster de tamanho médio, com um corpo redondo e fofo que é uma delícia de abraçar. Débora tem uma dieta simples, composta principalmente por ração específica para hamsters, frutas frescas e legumes. Além disso, ela adora roer pequenos pedaços de madeira para manter seus dentinhos saudáveis.
-          </p>
-      </div>
-  
-      <div class="doador">
-        <img src="img/user.png" alt="" width="42em">
-        <p>Doação feita por <a href="https://www.exemplo.com" class="link-style">Bruno Souza</a> em 05/06/2023</p>
-      </div>
-  
-      <div class="btn">
-        <a href="#">Adotar</a>
-      </div>
+  <div class="midia">
+    <img src="img/hamster.jpg" alt="">
+    <img src="img/hamster.jpg" alt="">
+    <img src="img/hamster.jpg" alt="">
+  </div>
+</div>
 
 
-    </div>
+<div class="container">
+
+  <div class="nome">
+    <p>' . $row->nome . '</p>
+  </div>
+
+  <div class="complemento">
+    <p>' . $row->raca . '/' . $row->sexo . '</p>
+  </div>
+
+  <div class="info">
+    <h3>Informaçõesⓘ</h3> 
+    <p>' . $row->informacoes . '</p>
+  </div>
+
+  <div class="doador">
+    <img src="img/user.png" alt="" width="42em">
+    <p>Doação feita por <a href="https://www.exemplo.com" class="link-style">Bruno Souza</a> em 05/06/2023</p>
+  </div>
+
+  <div class="btn">
+    <a href="#">Adotar</a>
+  </div>
+  
+</div>';
+  }
+?>
     
     
 

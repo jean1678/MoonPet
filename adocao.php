@@ -116,9 +116,9 @@
         while ($row = $result->fetch(PDO::FETCH_OBJ)) {
             echo '
             <div class="cardAnimal">
-                <a href="perfil.php">
+                <a href="perfil.php?doacao='.$row->nome.'">
                 <div class="cardFoto">
-                        <img src="pets/' . $row->imagem . '" alt="">                
+                        <img src="pets/'.$row->imagem.'" alt="">                
                     </div>
                     <div class="cardNome">               
                         <p>' . $row->nome . '</p>
