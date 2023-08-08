@@ -226,7 +226,7 @@
                 <li><a href="index.php">Página Inicial</a></li>
                 <li><a href="#">Sobre Nós</a></li>
                 <li><a href="#">Serviços</a></li>
-                <li><button class="popup-btn" type="submit" onclick="handlePopup(false)">Contato</button></li>
+                <p class="contato">MoonPet@Gmail.com</p>
             </ul>
         </div>
     </footer>

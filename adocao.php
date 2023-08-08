@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="img/favicon_io/favicon.ico" type="image/x-icon">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" 
         integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>MoonPetATT</title>
@@ -145,8 +145,8 @@
                 <li><a href="index.php">Página Inicial</a></li>
                 <li><a href="#">Sobre Nós</a></li>
                 <li><a href="#">Serviços</a></li>
-                <li><button class="popup-btn" type="submit" onclick="handlePopup(false)">Contato</button></li>
             </ul>
+            <p class="contato">MoonPet@Gmail.com</p>
         </div>
     </footer>
     <!--Fim Footer-->

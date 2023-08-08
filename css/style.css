@@ -265,6 +265,9 @@
         max-width: 960px;
         margin: 0 auto;
     }
+    .container .contato{
+        padding: 1% 0 0 0;
+    }
     .footer-links {
         list-style: none;
         padding: 0;
