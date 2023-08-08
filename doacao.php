@@ -86,11 +86,11 @@
             <label for="CPF/CNPJ">Raça:</label>
             <select id="raca" name="raca">
                 <option class="td" value="" disabled="disabled" selected="selected">Raça</option>
-                <option value="">Cachorro</option>
-                <option value="">Gato</option>
-                <option value="">Hamster</option>
-                <option value="">Coelho</option>
-                <option value="">Furão</option>
+                <option value="Cachorro">Cachorro</option>
+                <option value="Gato">Gato</option>
+                <option value="Hamster">Hamster</option>
+                <option value="Coelho">Coelho</option>
+                <option value="Furão">Furão</option>
             </select>
         </div>
 
@@ -100,8 +100,8 @@
             <label for="sexo">Sexo:</label>
             <select id="sexo" name="sexo">
                 <option value="" disabled="disabled" selected="selected">Sexo</option>
-                <option value="">fêmea</option>
-                <option value="">Macho</option>
+                <option value="Fêmea">Fêmea</option>
+                <option value="Macho">Macho</option>
             </select>
         </div>
 

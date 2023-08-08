@@ -10,13 +10,12 @@
 
     $dir = "../pets/";
 
-    $imagem['nome'] = $nome.".jpg";
-    $imgname = $imagem['name'];
-
-    if (move_uploaded_file($imagem["tmp_name"], "$dir".$imagem["name"])) {
-        $message = "Arquivos enviados com sucesso!";
+    $imagem['name'] = $nome.".jpg";
+    
+    if (move_uploaded_file($imagem["tmp_name"], "$dir".$imagem['name'])){
+       echo $message = "Arquivos enviados com sucesso!";
     } else {
-        $message = "Erro, o arquivo não pode ser enviado.";
+       echo $message = "Erro, o arquivo não pode ser enviado.";
     }
 
     include "conexao.php";
@@ -26,7 +25,7 @@
     $stmt->bindValue(':sexo', $sexo);
     $stmt->bindValue(':raca', $raca);
     $stmt->bindValue(':informacoes', $informacoes);
-    $stmt->bindValue(':imagem', $imgname);
+    $stmt->bindValue(':imagem', $imagem['name']);
     $stmt->bindValue(':cidade', $cidade);
     $stmt->execute();
 
