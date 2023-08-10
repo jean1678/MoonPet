@@ -56,19 +56,24 @@
 
 
   <?php
-  $doacao = $_GET['doacao'];
   
   include "php/conexao.php";
 
-    $query = "SELECT * FROM doacao WHERE idDoacao = '$doacao'";
+  if (isset($_GET['doacao'])) {
+    $doacaoNome = $_GET['doacao'];
 
-    $result = $pdo->query($query);
+    $query = "SELECT * FROM doacao WHERE nome = :doacaoNome";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':doacaoNome', $doacaoNome);
+    $stmt->execute();
 
-    while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+    $doacao = $stmt->fetch(PDO::FETCH_OBJ);
+
+    if ($doacao) {
         echo '
 <div class="galeria">
   <div class="perfil">
-    <img src="pets/' . $row->imagem . '" alt="' . $row->nome . '">
+  <img src="pets/'.$doacao->imagem.'" alt="'.$doacao->nome.'">                
   </div>
 
   <div class="midia">
@@ -82,16 +87,16 @@
 <div class="container">
 
   <div class="nome">
-    <p>' . $row->nome . '</p>
+   <h2>' . $doacao->nome . '</h2>
   </div>
 
   <div class="complemento">
-    <p>' . $row->raca . '/' . $row->sexo . '</p>
+    <p>' . $doacao->raca . '/' . $doacao->sexo . '</p>
   </div>
 
   <div class="info">
     <h3>Informaçõesⓘ</h3> 
-    <p>' . $row->informacoes . '</p>
+    <p>' . $doacao->informacoes . '</p>
   </div>
 
   <div class="doador">
@@ -104,6 +109,7 @@
   </div>
   
 </div>';
+    }
   }
 ?>
     

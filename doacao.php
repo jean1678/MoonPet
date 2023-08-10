@@ -84,7 +84,7 @@
 
         <div class="formulários">
             <label for="CPF/CNPJ">Raça:</label>
-            <select id="raca" name="raca">
+            <select id="raca" name="raca" required>
                 <option class="td" value="" disabled="disabled" selected="selected">Raça</option>
                 <option value="Cachorro">Cachorro</option>
                 <option value="Gato">Gato</option>
@@ -98,7 +98,7 @@
 
         <div class="formulários">
             <label for="sexo">Sexo:</label>
-            <select id="sexo" name="sexo">
+            <select id="sexo" name="sexo" required>
                 <option value="" disabled="disabled" selected="selected">Sexo</option>
                 <option value="Fêmea">Fêmea</option>
                 <option value="Macho">Macho</option>
@@ -106,7 +106,7 @@
         </div>
 
         <label for="CPF/CNPJ">Cidade:</label>
-            <select id="cidade" name="cidade">
+            <select id="cidade" name="cidade" required>
                 <option class="td" value="" disabled="disabled" selected="selected">cidade</option>
                     
                 <?php
@@ -132,7 +132,7 @@
     </table>
 
         <div class="formPT2">
-        <input type="checkbox" name="cbx" id="cbxTermos">
+        <input type="checkbox" name="cbx" id="cbxTermos" required>
         <span>Para continuar é preciso que concorde com os <a href="">termos de doação</a></span>
         <br>
         <br>
