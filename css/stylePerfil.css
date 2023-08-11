@@ -32,6 +32,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 10vh;
 }
 header nav .menu-faketrigger {
     display: none;
@@ -86,6 +87,7 @@ footer {
     bottom: 0%;
     width: 100%;
     color: var(--branco);
+    height: 10vh;
 }
 .container2 {
     max-width: 960px;
@@ -225,30 +227,26 @@ form button:hover{
     border-radius: 16px;
 }
 /*Contato*/
+.tudo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    margin: 0;
+}
 
-.perfil img{
-    width: 80%;
+.perfil img{   
+    height: 600px;
+    width: 700px;
     border-radius: 1em;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .perfil{
+    
     display: flex;
     justify-content: center;
-    padding: 10em;
     padding-bottom: 1em;
-}
-
-.midia img{
-    width: 20%;
-    border-radius: 1em;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-
-.midia{
-    display: flex;
-    gap: 2em;
-    padding-left: 20em;
 }
 
 .nome h2{
@@ -278,6 +276,8 @@ form button:hover{
 }
 
 .info p{
+    width: 500px;
+    height: 65px;
     position: relative;
     top: 1em;
     padding-top: 2em;
@@ -407,6 +407,10 @@ form button:hover{
         color: var(--verde-Padrao);
     }
 
+    header{
+        height: 10vh;
+    }
+
     .titulo {
         font-size: 34px;
         margin: 20px .4em;
@@ -452,6 +456,7 @@ form button:hover{
 
 /*Incio Footer Mobile*/
 footer {
+    height: 10vh;
     font-size: .9rem;
     background-color: var(--preto);
     padding: 60px 0;
@@ -482,6 +487,12 @@ footer {
 }
 /*Fim Footer Mobile*/
 
+    .tudo{
+        display: flex;
+        height: 80vh;
+        flex-wrap: wrap;
+    }
+
     .container{
         padding: 0em;
     }
@@ -491,7 +502,8 @@ footer {
     }
 
     .perfil img{
-        width: 100%;
+        height: 400px;
+        width: 350px;
         border-radius: 0.5em;
     }
     
@@ -553,7 +565,6 @@ footer {
 
     .doador{
         display: flex; 
-        padding-left: 3.2em; 
         padding-top: 2em;    
         justify-content: center;
         padding-bottom: 3em;

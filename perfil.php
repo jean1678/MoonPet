@@ -71,15 +71,10 @@
 
     if ($doacao) {
         echo '
+<div class="tudo">
 <div class="galeria">
   <div class="perfil">
   <img src="pets/'.$doacao->imagem.'" alt="'.$doacao->nome.'">                
-  </div>
-
-  <div class="midia">
-    <img src="img/hamster.jpg" alt="">
-    <img src="img/hamster.jpg" alt="">
-    <img src="img/hamster.jpg" alt="">
   </div>
 </div>
 
@@ -108,6 +103,7 @@
     <a href="#">Adotar</a>
   </div>
   
+</div>
 </div>';
     }
   }
