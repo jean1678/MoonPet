@@ -66,7 +66,9 @@ header nav ul li a:hover {
     transition: all ease .3s;
     text-decoration: underline;
 }
-
+h2{
+    margin: 2% 0;
+}
 /*Inicio Introdução*/
 .titulo {
     font-size: 40px;
@@ -94,15 +96,17 @@ header nav ul li a:hover {
 .box {
     display: flex;
     justify-content: center;
-    padding: 3em;
+    margin: 5% 0;
     gap: 2em;
 }
 
 select{
-    background-color: #30e38985;
+    
+    width: 120px;
+    background-color: var(--verde-Padrao);
     border-radius: 0.3em;
     border: none;
-    padding: 1em 2em 1em 1em;
+    padding: 1em 1em 1em 1em;
 }
 
 html{
@@ -118,6 +122,7 @@ a{
 }
 
 .texto1{
+    font-size: 1.3rem;
     padding: 0 7em;
 }
 
@@ -125,11 +130,11 @@ a{
     justify-content: center;
     text-align: center;
     padding: 1em;
-    width: 150px;
+    width: 120px;
     background-color: #30E389;
     align-items: center;
     margin: 20PX auto;
-    border-radius: 25px;
+    border-radius: 0.3rem;
     box-shadow: 1px 2px rgb(150, 146, 146);
 }
 
@@ -187,7 +192,7 @@ textarea{
 
 .cardAnimal{
     width: 200px;
-    margin-top: 1.5rem;
+    margin: 5%;
     border-radius: 1.2em 1.2em 1.2em 1.2em;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
@@ -524,7 +529,7 @@ footer {
     }
 
     select{
-        width: 100%;
+        width: 70%;
     }
 
     .box {
@@ -544,7 +549,6 @@ footer {
         justify-content: center;
         justify-items: center;
         width: 100%;
-        margin: 0           ;
         padding-top: 1em;
         gap: 1%; 
         grid-template-columns: repeat(2, 2fr);
@@ -561,7 +565,7 @@ footer {
     .cardAnimal {
         margin: 0 2%;
         width: 90%;
-        height: 90%;
+        margin: 5%;
         align-items: center;
     }
     
@@ -597,5 +601,8 @@ footer {
 
     html{
         scroll-behavior: smooth;
+    }
+    .container .contato{
+        margin: 0 30%;
     }
 }

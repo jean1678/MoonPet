@@ -41,8 +41,6 @@ session_start();
             <ul>
                 <li><a href="adocao.php">Adote</a></li>
                 <li><a href="doacao.php">Doe</a></li>
-                <li><button type="submit" onclick="handlePopup(false)">Fale Conosco</button></li>
-                <li><a href="facaParte.php">Cadastre-se</a></li>
                 <li><a href="login.php" target="_self">Login</a></li>
             </ul>
             <!--Fim Links Menu-->
