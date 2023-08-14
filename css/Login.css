@@ -57,8 +57,7 @@ header nav ul li a:hover {
 
 .main-login{
     width: 100%;
-    height: 82.2vh;
-    background-color: var(--background);
+    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,7 +87,7 @@ h1{
 
 .right-login{
     width: 50vw;
-    height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,7 +95,7 @@ h1{
 }
 
 .card-login{
-    width: 60%;
+    width: 45%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,7 +113,6 @@ h1{
 }
 
 .textfield{
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
@@ -123,6 +121,7 @@ h1{
 }
 
 .textfield > input{
+    margin: 5% 0 5% 0;
     width: 100%;
     border: none;
     border-radius: 10px;
@@ -181,6 +180,9 @@ footer {
 .container {
     max-width: 960px;
     margin: 0 auto;
+}
+.container .contato{
+    padding: 1% 0 0 0;
 }
 .footer-links {
     list-style: none;
@@ -327,74 +329,7 @@ header nav ul li button {
             scroll-behavior: smooth;
         }
         /*Scrool suave*/
-    
-        /*Inicio Menu-Hamburguer*/
-        .menu .menu-faketrigger {
-            position: absolute;
-            z-index: 1000;
-            width: 35px;
-            height: 35px;
-            opacity: 0;
-            margin: -16px 0 0 10px;
-        }
-        .menu .menu-lines {
-            position: absolute;
-            z-index: 999;
-            width: 35px;
-            height: 35px;
-        }
-        .menu .menu-lines span {
-            display: block;
-            width: 35px;
-            height: 4px;
-            margin-bottom: 10px;
-            background-color: var(--branco);
-            border-radius: 4px;
-            transition: all ease .3s;
-        }
-        header nav .menu-faketrigger {
-            display: block;
-        }
-        .menu .menu-faketrigger:checked~.menu-lines span {
-            background-color: aliceblue;
-        }
-        .menu .menu-faketrigger:checked~.menu-lines span:nth-child(1) {
-            transform-origin: 0% 0%;
-            transform: rotate(43deg)scaleX(1.25);
-        }
-        .menu .menu-faketrigger:checked~.menu-lines span:nth-child(2) {
-            opacity: 0;
-        }
-        .menu .menu-faketrigger:checked~.menu-lines span:nth-child(3) {
-            transform-origin: 0% 100%;
-            transform: rotate(-45deg) scaleX(1.25);
-        }
-        .menu .menu-lines {
-            margin: -16px 0 0 10px;
-        }
-        .menu ul {
-            position: absolute;
-            z-index: 998;
-            left: 0;
-            top: 0;
-            width: 210px;
-            height: 100%;
-            background-color: var(--preto);
-            padding-top: 150px;
-            margin-left: -250px;
-            transition: all ease .4s;
-        }
-        .menu .menu-faketrigger:checked~ul {
-            transition: all ease .4s;
-            margin-left: 0;
-        }
-        header nav ul {
-            display: block; 
-        }
-        header nav ul li a {
-            color: var(--verde-Padrao);
-        }
-    
+        
         .titulo {
             font-size: 34px;
             margin: 20px .4em;
