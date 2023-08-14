@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="PT-BR">
 <head>
@@ -51,6 +54,16 @@
         <div class="right-login">
             <div class="card-login">
                 <h1>LOGIN</h1>
+                <?php
+                    if(isset($_SESSION['nao_autenticado'])):
+                    ?>
+                    <div class="notification is-danger">
+                      <p>ERRO: Usuário ou senha inválidos.</p>
+                    </div>
+                    <?php
+                    endif;
+                    unset($_SESSION['nao_autenticado']);
+                    ?>
                 <div class="textfield">
                     <label for="usuario">Usuário</label>
                     <input type="text" name="usuario" placeholder="Usuário">

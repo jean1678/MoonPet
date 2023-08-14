@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -55,6 +57,27 @@
 
     <main>
         <h2>Cadastre-se!</h2>
+        <?php
+                    if(isset($_SESSION['status_cadastro'])):
+                    ?>
+                    <div class="notification is-success">
+                      <p>Cadastro efetuado!</p>
+                      <p>Faça login informando o seu usuário e senha <a href="login.php">aqui</a></p>
+                    </div>
+                    <?php
+                    endif;
+                    unset($_SESSION['status_cadastro']);
+                    ?>
+                    <?php
+                    if(isset($_SESSION['usuario_existe'])):
+                    ?>
+                    <div class="notification is-info">
+                        <p>O usuário escolhido já existe. Informe outro e tente novamente.</p>
+                    </div>
+                    <?php
+                    endif;
+                    unset($_SESSION['usuario_existe']);
+                    ?>
         <body>
 <div class="container23">
 
