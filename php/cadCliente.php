@@ -3,17 +3,17 @@
     session_start();
     include("conexao.php");
 
-    $nome = mysqli_real_escape_string($pdo, trim($_POST['nome']));
-    $senha = mysqli_real_escape_string($pdo, trim(md5($_POST['senha'])));
-    $email = mysqli_real_escape_string($pdo, trim($_POST['usuario']));
-    $cpf = mysqli_real_escape_int($pdo, trim($_POST['cpf']));
-    $telefone = mysqli_real_escape_int($pdo, trim($_POST['telefone']));
+    $nome = $_POST['nome'];
+    $senha = $_POST['senha'];
+    $email = $_POST['email'];
+    $cpf =  $_POST['cpf'];
+    $telefone =  $_POST['telefone'];
 
     $sql = "SELECT * from cadastro where email = '$email'";
-    $result = mysqli_query($pdo, $sql);
-    $row = mysqli_fetch_assoc($result);
+    $result = $pdo->query( $sql );
+    $row2 = $result->fetchAll( PDO::FETCH_ASSOC );
     
-    if($row['total'] == 1) {
+    if($row2['total'] == 1) {
         $_SESSION['usuario_existe'] = true;
         header('Location: cadastro.php');
         exit;
