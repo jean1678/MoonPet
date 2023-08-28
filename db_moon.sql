@@ -33,7 +33,8 @@ CREATE TABLE `Cadastro` (
     `cpf` INT NOT NULL,
     `telefone` varchar(20) NOT NULL,
     `email` varchar(500) NOT NULL,
-    `senha` varchar(100) NOT NULL
+    `senha` varchar(100) NOT NULL,
+    `total` int(100) NOT NULL
 );
 
 CREATE TABLE `Adocao` (

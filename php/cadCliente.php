@@ -9,11 +9,11 @@
     $cpf =  $_POST['cpf'];
     $telefone =  $_POST['telefone'];
 
-    $sql = "SELECT * from cadastro where email = '$email'";
+    $sql = "select cadastro as total from email where email = '$email'";
     $result = $pdo->query( $sql );
-    $row2 = $result->fetchAll( PDO::FETCH_ASSOC );
+    $row = $result->fetchAll( PDO::FETCH_ASSOC );
     
-    if($row2['total'] == 1) {
+    if($row['$total'] == 1) {
         $_SESSION['usuario_existe'] = true;
         header('Location: cadastro.php');
         exit;
